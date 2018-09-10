@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    a.section library
+    i.right.chevron.icon.divider
+    .active.section Edit book
+  // breadcrumb end
+  h1#ttt.heading-secondary Edit book
+  p.mb-normal
+    | You can add a new student to the system using this page. Please note that filling out all the fields marked with asterics is
+    | mandatory, and the ones without any symbol is optional to filling in.
+  div.carded
+    h3#ttt.heading-tertiary Basics
+    // form start
+    form.ui.form(action='/library/edit', method='POST')
+      .field.required
+        label Id
+        input(value=book.Id name="Id" autofocus='' required='' type="text")
+      .field.required
+        label Title
+        input(value=book.Title  name='Title' autofocus='' required='' type='text')
+      .field.required
+        label Description
+        input(value=book.Description  name='Description' required='' type='text')
+      .field.required
+        label Author
+        input(value=book.Author  name='Author' required='' type='text')
+      .field.required
+        label Publusher
+        input(value=book.Publisher  name="Publisher", required='' type='text')
+      .field.required
+        label Status
+        input(value=book.Status  name='Status' required='' type='text')
+      br
+      .field.required
+        .ui.checkbox
+          input.hidden(tabindex='0' type='checkbox')
+          label I agree to the Terms and Conditions
+      button.ui.button.mb-large.blue(type='submit') Edit Book
+  // form end

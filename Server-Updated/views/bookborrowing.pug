@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    a.section library
+    i.right.chevron.icon.divider
+    .active.section book borrowing
+  // breadcrumb end
+  h1#ttt.heading-secondary book borrowing
+  p.mb-normal
+    | You can add a new student to the system using this page. Please note that filling out all the fields marked with asterics is
+    | mandatory, and the ones without any symbol is optional to filling in.
+  div.carded
+    // form start
+    form.ui.form(action='/library/abs/add', method='POST')
+      .field.required
+        label Student ID
+        input(name='Sid'  required='' type='text' id='student-id-field')
+      .field.required
+        label Book ID
+        input(name='Bid' required='' type='text' value=bid )
+      br
+      .field.required
+        .ui.checkbox
+          input.hidden(tabindex='0' type='checkbox')
+          label I agree to the Terms and Conditions
+      button.ui.button.mb-large.blue(type='submit') Save borrowing details
+      .ui.attached.segment
+        .ui.message#mymessage01
+    script(src="/js/borrowedbokkscheckbystudet.js")
+  // form end

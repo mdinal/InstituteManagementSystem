@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    a.section Borrowing
+    i.right.chevron.icon.divider
+    .active.section Deatils
+  // breadcrumb end
+  h2.heading-tertiary Borrowing Deatils
+  // profile start
+  .user-profile
+    .user-profile__content
+      .user-profile__picture
+        .ui.card
+          a.image(href='#')
+            img(src='/img/avatars/avatar6.png')
+      .user-profile__info
+        .ui.segments
+          .ui.segment
+            strong Book ID: 
+            |  #{book.Id}
+          .ui.segment
+            strong Studet ID: 
+            |  #{book.Title}
+          .ui.segment
+            strong retuing date as promised: 
+            |  #{book.Description}
+          .ui.segment
+            strong borrowed date: 
+            |  #{book.Author}
+         
+  // profile end
+  // actions start
+  h3.heading-tertiary Common Actions
+  div
+    a.card-button.delete-book-button(href='#' data-id=book.Id) submiting book to library
+  

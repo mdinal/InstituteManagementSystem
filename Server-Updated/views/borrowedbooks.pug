@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    .active.section borrowed books
+  // breadcrumb end
+  // action buttons
+  span
+    br
+    br
+ 
+    div(style='display: flex;')
+      h3.heading-tertiary(style='margin-right: 1rem; margin-top: .5rem;') All
+      
+  // action buttons end
+  // table start
+  table.ui.table
+    thead
+      tr
+    
+        th Student id
+        th book id
+        th borrowed date
+        th return data 
+        th       
+    tbody
+      each Borrows in Borrow
+        tr
+        
+          td #{Borrows.book_id}
+          td #{Borrows.student_id}
+          td #{Borrows.retainingdate}
+          td #{Borrows.borroweddate}
+          td.right.aligned
+            a.ui.button(href='/library/borrowd/viwe/'+Borrows.book_id ) View book
+          
+    tfoot
+      tr
+        th(colspan='5')
+          .ui.right.floated.pagination.menu
+            a.icon.item
+              i.left.chevron.icon
+            a.item.active 1
+            a.item 2
+            a.item 3
+            a.item 4
+            a.icon.item
+              i.right.chevron.icon
+  // table end
+  // today start
+
+      
+

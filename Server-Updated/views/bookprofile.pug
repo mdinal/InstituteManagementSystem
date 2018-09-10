@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    a.section Books
+    i.right.chevron.icon.divider
+    .active.section Deatils
+  // breadcrumb end
+  h2.heading-tertiary Book Profile
+  // profile start
+  .user-profile
+    .user-profile__content
+      .user-profile__picture
+        .ui.card
+          a.image(href='#')
+            img(src='/img/avatars/avatar6.png')
+      .user-profile__info
+        .ui.segments
+          .ui.segment
+            strong Book Id: 
+            |  #{book.Id}
+          .ui.segment
+            strong Title: 
+            |  #{book.Title}
+          .ui.segment
+            strong Description: 
+            |  #{book.Description}
+          .ui.segment
+            strong Author: 
+            |  #{book.Author}
+          .ui.segment
+            strong Publusher: 
+            |  #{book.Publisher}
+          .ui.segment
+            strong Status: 
+            |  #{book.Status}
+  // profile end
+  // actions start
+  h3.heading-tertiary Common Actions
+  div
+    a.card-button(href='/library/edit/' + book.Id) Edit
+    a.card-button.delete-book-button(href='#' data-id=book.Id) Delete
+    a.card-button(href='#') Reporting
+  script(src="/js/deletebooks.js")

@@ -1,0 +1,86 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    .active.section Students
+  // breadcrumb end
+  // action buttons
+  span
+    br
+    br
+    a.ui.button.blue.padded-normal(href='/students/add') Add Entry
+    a.ui.button.purple.padded-normal(href='student-form.html') Reporting
+    a.ui.button.blue.padded-normal(href='attendance.html') Attendance
+    a.ui.button.green.padded-normal(href='student-form.html') Illustrates
+    br
+    br
+    br
+    div(style='display: flex;')
+      h3.heading-tertiary(style='margin-right: 1rem; margin-top: .5rem;') All
+      .ui.search
+        .ui.icon.input
+          input.prompt(placeholder='Find students...' type='text')
+          i.search.icon
+        .results
+  // action buttons end
+  // table start
+  table.ui.table
+    thead
+      tr
+        th Student
+        th Phone
+        th Email
+        th NIC
+        th Location
+        th
+    tbody
+      each student in students
+        tr
+          td
+            h4.ui.image.header
+              img.ui.mini.rounded.image(src='img/avatars/avatar2.png')
+              .content
+                | #{student.firstName} #{student.lastName}
+                .sub.header
+                  | #{student.id}
+          td #{student.phone}
+          td 
+            a(href='mailto:'+student.email) Compose
+          td #{student.nic}
+          td #{student.location}
+          td.right.aligned
+            a.ui.button(href='/students/'+ student.id) View
+    tfoot
+      tr
+        th(colspan='6')
+          .ui.right.floated.pagination.menu
+            a.icon.item
+              i.left.chevron.icon
+            a.item.active 1
+            a.item 2
+            a.item 3
+            a.item 4
+            a.icon.item
+              i.right.chevron.icon
+  // table end
+  // today start
+  div(style='margin: 4rem 0;')
+    h3.heading-tertiary Recent Activity
+    //- h5.ui.top.attached.header.green
+    //-   | Today
+    .ui.attached.segment
+      a.ui.image.label
+        img(src='img/avatars/avatar6.png')
+        |  Jon Snow
+      .ui.message
+        | 3 New students are successfully added 2h ago
+      .ui.message
+        | 4 Students are successfully removed 5h ago
+    h5.ui.attached.header.blue
+      | This Week
+    .ui.attached.segment
+      .ui.message
+        | No activities are recorded this week

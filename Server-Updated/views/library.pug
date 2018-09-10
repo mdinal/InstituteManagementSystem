@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    .active.section library
+  // breadcrumb end
+  // action buttons
+  span
+    br
+    br
+    a.card-button(href='/library/new') Add book
+    a.card-button(href='/library/borrow/book') Book borrowing
+    a.card-button(href='/library/returing/page') Book retuning
+    a.card-button(href='/library/borrow/abs/all') borrowed book ditails
+    div(style='display: flex;')
+      h3.heading-tertiary(style='margin-right: 1rem; margin-top: .5rem;') All
+      .ui.search
+        .ui.icon.input
+          input.prompt(placeholder='Find books...' type='text' id='book-name-field')
+          i.search.icon
+        .results
+  // action buttons end
+  // table start
+  table.ui.table
+    thead
+      tr
+    
+        th Title
+        th Description
+        th Author
+        th Publusher
+        th Status
+        th
+    tbody
+      each book in books
+        tr
+          td
+            h4.ui.image.header
+              img.ui.mini.rounded.image(src='img/avatars/avatar2.png')
+              .content
+                | #{book.Title} 
+                .sub.header
+                  | #{book.Id}
+          td #{book.Description}
+          td #{book.Author}
+          td #{book.Publisher}
+          td #{book.Status}
+          td.right.aligned
+            a.ui.button(href='/library/'+ book.Id) View
+            a.ui.button(href='/library/editbb/'+ book.Id) Borrow
+    tfoot
+      tr
+        th(colspan='6')
+          .ui.right.floated.pagination.menu
+            a.icon.item
+              i.left.chevron.icon
+            a.item.active 1
+            a.item 2
+            a.item 3
+            a.item 4
+            a.icon.item
+              i.right.chevron.icon
+  // table end
+  // today start
+  div(style='margin: 4rem 0;')
+    h3.heading-tertiary Notification
+  
+    .ui.attached.segment
+          
+      .ui.message#mymessage
+        | 
+  script(src="/js/mainpagenotification.js")
+      
+

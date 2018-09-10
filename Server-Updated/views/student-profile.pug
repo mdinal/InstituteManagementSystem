@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  // breadcrumb start
+  .ui.big.breadcrumb
+    a.section Home
+    i.right.chevron.icon.divider
+    a.section Students
+    i.right.chevron.icon.divider
+    .active.section Profile
+  // breadcrumb end
+  h2.heading-tertiary Student Profile
+  // profile start
+  .user-profile
+    .user-profile__tags
+      .ui.label.blue Attends 2 courses
+      .ui.label.blue Joined 1 Years
+      .ui.label.teal Bad Attendance
+      .ui.label.teal No Exams
+    .user-profile__content
+      .user-profile__picture
+        .ui.card
+          a.image(href='#')
+            img(src='/img/avatars/avatar6.png')
+      .user-profile__info
+        .ui.segments.fluid
+          .ui.segment
+            strong Student Id: 
+            |  #{student.id}
+          .ui.segment
+            strong Username: 
+            |  #{student.firstName} #{student.lastName}
+          .ui.segment
+            strong Location: 
+            |  #{student.location}
+          .ui.segment
+            strong Phone: 
+            |  #{student.phone}
+          .ui.segment
+            strong Birthday: 
+            |  #{new Date(student.dateOfBirth).toDateString()}
+          .ui.segment
+            strong Bio: 
+            |  #{student.bio}
+  // profile end
+  // actions start
+  h3.heading-tertiary Common Actions
+  div
+    a.ui.button.teal.padded-normal(href='/students/edit/' + student.id) Edit Student
+    a.ui.button.red.delete-student-button.padded-normal(href='#' data-id=student.id) Remove Student
+    a.ui.button.padded-normal(href='#') Reporting
+  // actions end
+  h3.heading-tertiary.mt-large Recent Examinations
+  .ui.message.mb-normal
+    | This student hasn&apos;t sat for any examination since joining the academy.
+  script(src="/js/student-profile.js")

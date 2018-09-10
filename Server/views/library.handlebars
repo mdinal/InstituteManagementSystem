@@ -1,0 +1,87 @@
+<!-- breadcrumb start -->
+<div class="ui big breadcrumb">
+  <a class="section">Home</a>
+  <i class="right chevron icon divider"></i>
+  <div class="active section">Library</div>
+</div>
+<!-- breadcrumb end -->
+<!-- action buttons -->
+<span>
+  <br>
+  <br>
+  <a href="/library/addbook" class="card-button">Add Book</a>
+  <a href="book-form.html" class="card-button">Reporting</a>
+  <a href="book-form.html" class="card-button">Book issue</a>
+  <a href="book-form.html" class="card-button">Violations</a>
+  <div style="display: flex;">
+    <h3 class="heading-tertiary" style="margin-right: 1rem; margin-top: .5rem;">All</h3>
+    <div class="ui search">
+      <div class="ui icon input">
+        <input class="prompt" placeholder="Find students..." type="text">
+        <i class="search icon"></i>
+      </div>
+      <div class="results"></div>
+    </div>
+  </div>
+</span>
+<!-- action buttons end -->
+<!-- table start -->
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Author</th>
+      <th>Published By</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each books}}
+    <tr>
+      <td>
+        <h4 class="ui image header">
+          <img src="img/books/book-cover.jpg" class="ui mini rounded image">
+          <div class="content">
+            {{this.Title}}
+            <div class="sub header">00{{this.Id}}
+            </div>
+          </div>
+        </h4>
+      </td>
+      <td>{{this.Author}}</td>
+      <td>{{this.Publisher}}</td>
+      <td>{{this.Status}}</td>
+      <td class="right aligned">
+        <a href="#" class="ui button">Issue</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="5">
+        <div class="ui right floated pagination menu">
+          <a class="icon item">
+            <i class="left chevron icon"></i>
+          </a>
+          <a class="item active">1</a>
+          <a class="item">2</a>
+          <a class="item">3</a>
+          <a class="item">4</a>
+          <a class="icon item">
+            <i class="right chevron icon"></i>
+          </a>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+<!-- table end -->
+<!-- notification section -->
+<h3 class="heading-tertiary">Notifications</h3>
+<div class="ui message error mb-large">
+  <p>2 books have not been returned on time</p>
+  <a href="#" class="ui button red">View details</a>
+</div>
+<!-- notification section end -->
