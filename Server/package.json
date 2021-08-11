@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mayura-ramanayaka/ITP-Project-SLIIT-2018.git"
+    "url": "git+https://github.com/mdinal/InstituteManagementSystem.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mayura-ramanayaka/ITP-Project-SLIIT-2018/issues"
+    "url": "https://github.com/mdinal/InstituteManagementSystem/issues"
   },
-  "homepage": "https://github.com/mayura-ramanayaka/ITP-Project-SLIIT-2018#readme",
+  "homepage": "https://github.com/mdinal/InstituteManagementSystem#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
